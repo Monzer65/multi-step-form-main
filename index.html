@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png"> 
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+
+
+<body>
+  <div class="wrapper">
+
+    <!-- Sidebar start -->
+    <div class="sliders">
+      <div class="slider">
+        <div class="slider-number">
+          1
+        </div>
+        <div class="slider-step">
+          <p class="text-step">Step 1</p>
+          <p><strong>Your info</strong></p>
+        </div>
+      </div>
+      <div class="slider">
+        <div class="slider-number">
+          2
+        </div>
+        <div class="slider-step">
+          <p class="text-step">Step 2</p>
+          <p><strong>Select plan</strong></p>
+        </div>
+      </div>
+      <div class="slider">
+        <div class="slider-number">
+          3
+        </div>
+        <div class="slider-step">
+          <p class="text-step">Step 3</p>
+          <p><strong>Add-ons</strong></p>
+        </div>
+      </div>
+      <div class="slider">
+        <div class="slider-number">
+          4
+        </div>
+        <div class="slider-step">
+          <p class="text-step">Step 4</p>
+          <p><strong>Summary</strong></p>
+        </div>
+      </div>
+    </div> 
+    <!-- Sidebar end -->
+    
+    <div class="steps-wrapper">
+
+      <!-- Step 1 start -->
+      <div class="step-1 step show">
+        <h2>Personal info</h2>
+      <p>Please provide your name, email address, and phone number.</p>
+      
+      <form action="">
+        <div class="error-wrapper">
+          <label for="name">Name</label>
+          <p class="error" id="name-error">This field can't be empty</p>
+        </div>
+        <input 
+        type="text" 
+        name="name"
+        id="name"
+        placeholder="e.g. Stephen King"
+        oninput = "this.className =''"
+        >
+        
+        <div class="error-wrapper">
+          <label for="email">Email Address</label>
+          <p class="error" id="email-error">This field can't be empty</p>
+        </div>
+        <input 
+        type="text" 
+        name="email"
+        id="email"
+        placeholder="e.g. stephenking@lorem.com"
+        oninput = "this.className =''"
+        >
+        
+        <div class="error-wrapper">
+          <label for="phone">Phone Number</label>
+          <p class="error" id="phone-error">This field can't be empty</p>
+        </div>
+        <input 
+        type="text"
+        name="phone"
+        id="phone"
+        placeholder="e.g. +1 234 567 890"
+        oninput = "this.className =''"
+        >
+      </form>
+    </div>
+    <!-- Step 1 end -->
+ 
+  <!-- Step 2 start -->
+  <div class="step-2 step hide">
+    <h2>Select your plan</h2>
+    <p>You have the option of monthly or yearly billing.</p>
+    <div class="step-2-cards-wrapper">
+      <div class="card">
+        <img src="/assets/images/icon-arcade.svg" alt="">
+        <div class="card-text">
+          <p><strong>Arcade</strong></p>
+          <p class="card-value">$9/mo </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/images/icon-advanced.svg" alt="">
+        <div class="card-text">
+          <p><strong>Advanced</strong></p>
+          <p class="card-value">$12/mo </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/images/icon-pro.svg" alt="">
+        <div class="card-text">
+          <p><strong>Pro</strong></p>
+          <p class="card-value">$15/mo</p>
+        </div>
+      </div>
+    </div>
+    <div class="switch-wrapper">
+      <p class="switch-text" id="monthly-text">Monthly</p>
+      <div class="switch">
+        <div class="switch-circle">
+          
+        </div>
+      </div>
+      <p class="switch-text" id="yearly-text">Yearly</p>
+    </div>    
+  </div>
+  <!-- Step 2 end -->
+  
+  <!-- Step 3 start -->
+  <div class="step-3 step">
+    <h2>Pick add-ons</h2>
+    <p>Add-ons help enhance your gaming experience.</p>   
+    <div class="step-3-cards-wrapper">
+      <div class="step-3-card">
+        <div class="check">
+
+          <input type="checkbox">
+          <div class="step-3-card-text">
+            <p><strong>Online service</strong></p>
+            <p>Access to multiplayer games</p>
+          </div>
+        </div>
+        <p class="value-per">+$1/mo</p>
+      </div>
+      <div class="step-3-card">
+        <div class="check">
+          <input type="checkbox">
+          <div class="step-3-card-text">
+            <p><strong>Larger storage</strong></p>
+            <p>Extra 1TB of cloud save</p>
+          </div>
+        </div>
+        <p class="value-per">+$2/mo</p>
+      </div>
+      <div class="step-3-card">
+        <div class="check">
+          <input type="checkbox">
+          <div class="step-3-card-text">
+            <p><strong>Customizable Profile</strong></p>
+            <p>Custom theme on your profile</p>
+          </div>
+        </div>
+        <p class="value-per">+$2/mo</p>
+      </div>
+    </div>    
+  </div>
+  <!-- Step 3 end -->
+  
+  <!-- Step 4 start -->
+  <div class="step-4 step">
+    <h2>Finishing up</h2>
+    <p>Double-check everything looks OK before confirming.</p>
+    
+    <!-- Dynamically add subscription and add-on selections here -->
+    <div class="step-4-card-wrapper">
+      <div class="summary-of-step-2">
+        <div class="left-text">
+          <div class="left-textp">
+            <p><strong id="selected-step-2-text"></strong></p>
+            <p id="finnish-yearly-monthly">(Monthly)</p>
+          </div>
+          <a href="#" id="change-link" onclick="nextPrevStep(-2)">change</a>
+        </div>
+        <p id="selected-step-2-value"></p>
+      </div>
+      <hr>
+      <div class="summary-of-step-3">
+        <p class="selected-step-3-text"></p>
+        <p class="selected-step-3-value"></p>
+      </div>
+      <div class="summary-of-step-3">
+        <p class="selected-step-3-text"></p>
+        <p class="selected-step-3-value"></p>
+      </div>
+      <div class="summary-of-step-3">
+        <p class="selected-step-3-text"></p>
+        <p class="selected-step-3-value"></p>
+      </div>
+    </div>
+
+    <div class="total-wrapper">
+      <p>Total (per month/year)</p>
+      <p id="total-value">+$12/mo</p>
+    </div>
+
+  </div>
+  <!-- Step 4 end -->
+
+  <div class="step-btns">
+    <div class="go-back-btn">
+      <p onclick="nextPrevStep(-1)">Go Back</p>
+    </div>
+    <button class="next-btn" onclick="nextPrevStep(1)">Next Step</button>
+    <!-- <button class="confirm">Confirm</button> -->
+  </div> 
+
+  
+  <!-- Step 5 start -->
+  <div class="step-5 step">
+    <img src="/assets/images/icon-thank-you.svg" alt="">
+    <h2>Thank you!</h2>
+    <p>Thanks for confirming your subscription! We hope you have fun 
+    using our platform. If you ever need support, please feel free 
+    to email us at support@loremgaming.com.</p>
+
+  </div>
+  <!-- Step 5 end -->
+  </div>
+</div>
+  
+  <script src="new.js"></script>
+</body>
+</html>
