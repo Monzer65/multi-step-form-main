@@ -42,7 +42,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    width: 80%;
+    width: 100%;
+    max-width: 270px;
     padding: 2rem;
     border-radius: 10px;
 }
@@ -303,10 +304,6 @@ body{
 .check input{
     background-color: var(--Purplish-blue);
 }
-
-.confirm{
-    display: block;
-}
 .step-4-card-wrapper{
     padding: 1rem;
     background-color: var(--Magnolia);
@@ -390,9 +387,10 @@ hr{
         justify-content: center;
         align-items: flex-start;
         width: 100%;
+        max-width: 100%;
         border: none;
         border-radius: 0;
-        background: url(/assets/images/bg-sidebar-mobile.svg) no-repeat;
+        background: url(assets/images/bg-sidebar-mobile.svg) no-repeat;
         background-size: cover;
         height: 250px;
     }
