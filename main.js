@@ -17,53 +17,56 @@ const totalText = document.querySelector('#total-text span')
 const totalValue = document.querySelector('#total-value span');
 const totalValueText = document.querySelector('#per-monthyear');
 
-//selecting a plan (step-2)
-for(card of step2Cards){
-    card.addEventListener('click', function(){
-        //by clcking on every plan, all active plans will be removed
-        for (card of step2Cards){
+// Event listener for selecting a plan (step-2)
+for (card of step2Cards) {
+    card.addEventListener('click', function () {
+        // Remove 'selected' class from all plans
+        for (card of step2Cards) {
             card.classList.remove('selected');
         }
-        //by clicking on every plan, active class will be added to that specific plan
+        // Add 'selected' class to the clicked plan
         this.classList.add('selected');
-        //passing the title of the plan to the summary section (step-4)
+        // Update the summary section with the selected plan's title
         summaryStep2Title.innerHTML = this.querySelector('.step-2-card-text p strong').innerHTML;
 
-        step2Values ();
+        step2Values();
         totalval();
-    }); 
-};
+    });
+}
 
-//handling the click event of monthly and yearly switch
-switchMonthYear.addEventListener('click', function (){
+// Event listener for handling the monthly and yearly switch
+switchMonthYear.addEventListener('click', function () {
     switchMonthYear.classList.toggle('yearly');
-    if(switchMonthYear.classList.contains('yearly')){
+    if (switchMonthYear.classList.contains('yearly')) {
+        // Update UI for yearly display
         summaryStp2YealyMonthly.textContent = '(Yearly)';
         totalText.innerHTML = "Year";
-        totalValueText.innerHTML ="/yr";
+        totalValueText.innerHTML = "/yr";
         yearlyvalue();
-    }else{
-        
+    } else {
+        // Update UI for monthly display
         summaryStp2YealyMonthly.textContent = '(Monthly)';
         totalText.innerHTML = "Month";
-        totalValueText.innerHTML ="/mo";
+        totalValueText.innerHTML = "/mo";
         monthlyvalue();
-    }  
-    step2Values ();
+    }
+    step2Values();
     totalval();
 });
 
-//passing the value of selected plan (step-2) to the summary section
-function step2Values (){
-    for(i of step2Cards){
-        if(i.classList.contains('selected')){
+// Function to update the value of the selected plan (step-2) in the summary section
+function step2Values() {
+    for (i of step2Cards) {
+        if (i.classList.contains('selected')) {
             summarystp2Text.textContent = i.querySelector('.step-2-card-value').textContent;
-        };
-    };
-};
+        }
+    }
+}
 
-//this function is called when yearly switch is activated
+
+// Functions to handle value calculation for yearly and monthly switch
 function yearlyvalue(){
+    // Update values for yearly display
     for(i = 0; i < step2CardValues.length; i++){
         step2CardValues[i].innerHTML = parseInt(step2CardValues[i].innerHTML) * 10;
         step2CardText[i].innerHTML=`$${step2CardValues[i].textContent} /yr`
@@ -79,8 +82,8 @@ function yearlyvalue(){
     };
 };
 
-//this function is called when monthly switch is activated
 function monthlyvalue(){
+        // Update values for monthly display
     for(i = 0; i < step2CardValues.length; i++){
         step2CardValues[i].innerHTML = parseInt(step2CardValues[i].innerHTML) / 10;
         step2CardText[i].innerHTML=`$${step2CardValues[i].textContent} /mo`;
@@ -96,10 +99,10 @@ function monthlyvalue(){
     };
 };
 
-//click event for every add-on in step-3
+// Event listeners for each add-on in step-3
 for(i = 0; i < step3Cards.length; i++){
     step3Cards[i].addEventListener('click', function (){
-        //activating or deactivating every add-on by click on the card and checking the checkbox
+        // Toggle add-on selection and update the summary section accordingly
         this.classList.toggle('selected');
         this.checked = true;
         //passing the content of first add-on to the summary section (step-4) if they are activated
@@ -132,8 +135,10 @@ for(i = 0; i < step3Cards.length; i++){
     });   
 };
 
-//function for calculating the total amount at the step-4. this function is called on click events at step-2 and step-3
+// Function to calculate the total amount at step-4
 function totalval(){
+        // Calculate total based on selected options
+
     let a = document.querySelector("#selected-step-2-value").innerHTML;
     let b = document.querySelectorAll('.selected-step-3-value')[0].innerHTML;
     let c = document.querySelectorAll('.selected-step-3-value')[1].innerHTML;
@@ -177,6 +182,7 @@ let currentStep = 0;
 //display the curren step
 showStep(currentStep);
 
+// Functions to manage steps and slider indicators
 function showStep(n){
     //display specefied step
     let step = document.querySelectorAll('.step');
